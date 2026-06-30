@@ -1,26 +1,207 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Skillprint Theme (Light) - Default */
+  --background: #f5f5f7;
+  --foreground: #1d1d1f;
+  
+  --card: #ffffff;
+  --card-foreground: #1d1d1f;
+  
+  --popover: #ffffff;
+  --popover-foreground: #1d1d1f;
+  
+  --primary: #543DEB;
+  --primary-foreground: #ffffff;
+  
+  --secondary: #05DF91;
+  --secondary-foreground: #000000;
+  
+  --muted: #e5e5ea;
+  --muted-foreground: #86868b;
+  
+  --accent: #26B8FF;
+  --accent-foreground: #000000;
+  
+  --destructive: #FF4F8E;
+  --destructive-foreground: #ffffff;
+  
+  --border: #d2d2d7;
+  --input: #d2d2d7;
+  --ring: #05DF91;
+  
+  --radius: 1rem;
+
+  /* Font Override */
+  --font-sans: var(--font-inter);
+}
+
+[data-theme="dark"] {
+  /* Apple/Calm Dark Theme */
+  --background: #000000;
+  --foreground: #f5f5f7;
+  
+  --card: #1c1c1e;
+  --card-foreground: #f5f5f7;
+  
+  --popover: #1c1c1e;
+  --popover-foreground: #f5f5f7;
+  
+  --primary: #0a84ff;
+  --primary-foreground: #ffffff;
+  
+  --secondary: #2c2c2e;
+  --secondary-foreground: #f5f5f7;
+  
+  --muted: #2c2c2e;
+  --muted-foreground: #86868b;
+  
+  --accent: #0a84ff;
+  --accent-foreground: #ffffff;
+  
+  --destructive: #ff453a;
+  --destructive-foreground: #ffffff;
+  
+  --border: #38383a;
+  --input: #38383a;
+  --ring: #0a84ff;
+}
+
+[data-theme="midnight"] {
+  /* Midnight Theme */
+  --background: #0f172a;
+  --foreground: #f1f5f9;
+  
+  --card: #1e293b;
+  --card-foreground: #f1f5f9;
+  
+  --popover: #1e293b;
+  --popover-foreground: #f1f5f9;
+  
+  --primary: #818cf8;
+  --primary-foreground: #ffffff;
+  
+  --secondary: #334155;
+  --secondary-foreground: #f1f5f9;
+  
+  --muted: #334155;
+  --muted-foreground: #94a3b8;
+  
+  --accent: #38bdf8;
+  --accent-foreground: #ffffff;
+  
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  
+  --border: #334155;
+  --input: #334155;
+  --ring: #818cf8;
+}
+
+[data-theme="light"] {
+  /* Apple/Calm Light Theme */
+  --background: #f5f5f7;
+  --foreground: #1d1d1f;
+  
+  --card: #ffffff;
+  --card-foreground: #1d1d1f;
+  
+  --popover: #ffffff;
+  --popover-foreground: #1d1d1f;
+  
+  --primary: #007aff;
+  --primary-foreground: #ffffff;
+  
+  --secondary: #e5e5ea;
+  --secondary-foreground: #1d1d1f;
+  
+  --muted: #e5e5ea;
+  --muted-foreground: #86868b;
+  
+  --accent: #007aff;
+  --accent-foreground: #ffffff;
+  
+  --destructive: #ff3b30;
+  --destructive-foreground: #ffffff;
+  
+  --border: #d2d2d7;
+  --input: #d2d2d7;
+  --ring: #007aff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  
+  --font-sans: var(--font-outfit);
   --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --animate-subtle-fade: subtle-fade 3s ease-out forwards;
+  @keyframes subtle-fade {
+    0% { color: #999; }
+    100% { color: #333; }
+  }
+
+  --animate-wave-fast: wave 12s linear infinite;
+  --animate-wave: wave 18s linear infinite;
+  --animate-wave-slow: wave 25s linear infinite;
+  --animate-wave-slower: wave 35s linear infinite;
+  
+  --animate-wave-reverse: wave-reverse 22s linear infinite;
+  
+  @keyframes wave {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+  
+  @keyframes wave-reverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0%); }
   }
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+@utility no-scrollbar {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
